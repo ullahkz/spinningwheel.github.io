@@ -11,10 +11,14 @@
             width: 100%;
             height: 100vh;
             background-color: #fcecd7;
-            background-image: url('christmas.jpg');
-            background-repeat: no-repeat;
+            background-image: url('giphy.gif');
+            background-repeat: repeat-x;
             background-position: center center;
             background-size: cover;
+        }
+
+        .hidden {
+          display: none;
         }
         #wrapper {
             width: 100%;
@@ -45,8 +49,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            border: 1px solid black;
-            background-color: white;
+            /* border: 1px solid black;
+            background-color: #68d9b6; */
+            background-clip: text;
+            background-image: linear-gradient(90deg, #e66465, #9198e5);
         }
         #question h1{
             font-size: 50px;
@@ -55,6 +61,7 @@
             padding: 0;
             margin: 0;
             text-align: center;
+            color: transparent;
         }
         .logo {
             left: 40px;
@@ -62,6 +69,8 @@
             position: absolute;
             top: 40px;
             width: 200px;
+            background-color: #2E75FF;
+            padding: 15px;
         }
 
         /* Autumn Animation Start */
@@ -225,19 +234,19 @@
 	</div>
     <!-- Autumn Animation Start-->
     <div class="content">
-        <div class="leaves">
-          <div class="leaf1">❄️</div>
-          <div class="leaf2">❄️</div>
-          <div class="leaf3">❄️</div>
-          <div class="leaf4">❄️</div>
-          <div class="leaf6">❄️</div>
-          <div class="leaf7">❄️</div>
-          <div class="leaf8">❄️</div>
-          <div class="leaf9">❄️</div>
-          <div class="leaf10">❄️</div>
-          <div class="leaf11">❄️</div>
-          <div class="leaf12">❄️</div>
-        </div>
+        <!-- <div class="leaves">
+          <div class="leaf1">✨</div>
+          <div class="leaf2">✨</div>
+          <div class="leaf3">✨</div>
+          <div class="leaf4">✨</div>
+          <div class="leaf6">✨</div>
+          <div class="leaf7">✨</div>
+          <div class="leaf8">✨</div>
+          <div class="leaf9">✨</div>
+          <div class="leaf10">✨</div>
+          <div class="leaf11">✨</div>
+          <div class="leaf12">✨</div>
+        </div> -->
     </div>
     <!-- Autumnn Animation end -->
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
@@ -253,17 +262,30 @@ var padding = {top:20, right:40, bottom:0, left:0},
             picked = 100000,
             oldpick = [],
             color = [
-              "#a0e6eb",
-              "#b3f0f7",
-              "#c5f8ff",
-              "#d7faff",
-              "#e9fcff",
-              "#b4d8e9",
-              "#9fc7d4",
-              "#8bb6c0",
-              "#76a5ac",
-              "#628498"
-            ];
+              "#FF4500",  
+              "#FFD700",  
+              "#8B0000",  
+              "#FF6347",  
+              "#FF1493",  
+              "#8A2BE2",  
+              "#00FFFF",  
+              "#FFFF00",  
+              "#FFD700",  
+              "#00FF7F"   
+            ],
+            color = ['#FF0000', '#FFA500', '#FFFF00', '#008000', '#0000FF', '#800080', '#FF1493', '#00CED1', '#FFD700', '#00FF00'];
+            // color = [
+            //   "#a0e6eb",
+            //   "#b3f0f7",
+            //   "#c5f8ff",
+            //   "#d7faff",
+            //   "#e9fcff",
+            //   "#b4d8e9",
+            //   "#9fc7d4",
+            //   "#8bb6c0",
+            //   "#76a5ac",
+            //   "#628498"
+            // ];
             //color = d3.scale.category20();//category20c()
             //randomNumbers = getRandomNumbers();
         //http://osric.com/bingo-card-generator/?title=HTML+and+CSS+BINGO!&words=padding%2Cfont-family%2Ccolor%2Cfont-weight%2Cfont-size%2Cbackground-color%2Cnesting%2Cbottom%2Csans-serif%2Cperiod%2Cpound+sign%2C%EF%B9%A4body%EF%B9%A5%2C%EF%B9%A4ul%EF%B9%A5%2C%EF%B9%A4h1%EF%B9%A5%2Cmargin%2C%3C++%3E%2C{+}%2C%EF%B9%A4p%EF%B9%A5%2C%EF%B9%A4!DOCTYPE+html%EF%B9%A5%2C%EF%B9%A4head%EF%B9%A5%2Ccolon%2C%EF%B9%A4style%EF%B9%A5%2C.html%2CHTML%2CCSS%2CJavaScript%2Cborder&freespace=true&freespaceValue=Web+Design+Master&freespaceRandom=false&width=5&height=5&number=35#results
@@ -355,8 +377,19 @@ var padding = {top:20, right:40, bottom:0, left:0},
 					    .style("fill", "rgb(0,0,0)");
 
                     //populate question
-                    d3.select("#question h1")
-                        .html(data[picked].question);
+                    d3.select("#question h1").html(data[picked].question);
+                    // var i = 0;
+                    // var txt = data[picked].question;
+                    // var speed = 50;
+
+                    // function typeWriter() {
+                    //   if (i < txt.length) {
+                    //     document.querySelector('#question h1').innerHTML += txt.charAt(i);
+                    //     i++;
+                    //     setTimeout(typeWriter, speed);
+                    //   }
+                    // }
+                    // typeWriter();
                     oldrotation = rotation;
               
                     /* Get the result value from object "data" */
@@ -410,5 +443,6 @@ var padding = {top:20, right:40, bottom:0, left:0},
             return array;
         }
     </script>
+    <a class="hidden" href="https://www.freepik.com/free-vector/year-2024-happy-new-year-vector-3d-handwritten-gold-script-with-text-space_57346004.htm#query=2024%20happy%20new%20year%20png&position=6&from_view=keyword&track=ais&uuid=902dc501-bff6-4b02-9ab2-8a537f37ba9b">Image by callmetak</a> on Freepik
 </body>
 </html>
