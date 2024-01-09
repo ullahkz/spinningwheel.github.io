@@ -1,1 +1,1 @@
-# spinningwheel.github.io
+# spinningwheel.io
