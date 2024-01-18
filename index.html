@@ -7,11 +7,16 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <title>Lucky Daily Hero Wheel</title>
     <style>
+      @font-face {
+        font-family: Icefont;
+        src: url('polar_snow/Polar_Snow.otf')format('opentype'),
+         url('polar_snow/Polar_Snow.ttf') format('truetype');
+      }
         body {
             width: 100%;
             height: 100vh;
             background-color: #fcecd7;
-            background-image: url('christmas.jpg');
+            background-image: url('bgsnow.jpg');
             background-repeat: no-repeat;
             background-position: center center;
             background-size: cover;
@@ -24,7 +29,7 @@
             align-items: center;
         }
         text{
-            font-family:Helvetica, Arial, sans-serif;
+            font-family: fantasy, Arial, sans-serif;
             font-size:20px;
             pointer-events:none;
             font-weight: bold;
@@ -38,6 +43,7 @@
         }
         #question{
             /*position: absolute;*/
+            font-family: 'Icefont', sans-serif;
             width:600px;
             height:300px;
             top:0;
@@ -45,8 +51,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            border: 1px solid black;
-            background-color: white;
+            /*border: 1px solid black;
+            background-color: white;*/
+            background-clip: text;
+            background-image: linear-gradient(90deg, #ffffff, #00d7ff);
         }
         #question h1{
             font-size: 50px;
@@ -55,6 +63,10 @@
             padding: 0;
             margin: 0;
             text-align: center;
+            color: transparent;
+        }
+        #question h1 span{
+          font-family: 'Icefont', sans-serif;
         }
         .logo {
             left: 40px;
@@ -212,19 +224,26 @@
           left:750px;
           animation: fall5 4.7s linear infinite 1.7s;
         }
-        /* Autumn Animation End */        
+        /* Autumn Animation End */
+        #snow-canvas{
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          z-index: -1;
+        }        
     </style>
 </head>
 <body>
     <header>
         <img class="logo" src="logo.svg" alt="logo">
     </header>
+    <canvas id="snow-canvas"></canvas>
 	<div id="wrapper">
 		<div id="chart"></div>
    		<div id="question"><h1></h1></div>
 	</div>
     <!-- Autumn Animation Start-->
-    <div class="content">
+    <!-- <div class="content">
         <div class="leaves">
           <div class="leaf1">❄️</div>
           <div class="leaf2">❄️</div>
@@ -238,7 +257,7 @@
           <div class="leaf11">❄️</div>
           <div class="leaf12">❄️</div>
         </div>
-    </div>
+    </div> -->
     <!-- Autumnn Animation end -->
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -268,15 +287,15 @@ var padding = {top:20, right:40, bottom:0, left:0},
             //randomNumbers = getRandomNumbers();
         //http://osric.com/bingo-card-generator/?title=HTML+and+CSS+BINGO!&words=padding%2Cfont-family%2Ccolor%2Cfont-weight%2Cfont-size%2Cbackground-color%2Cnesting%2Cbottom%2Csans-serif%2Cperiod%2Cpound+sign%2C%EF%B9%A4body%EF%B9%A5%2C%EF%B9%A4ul%EF%B9%A5%2C%EF%B9%A4h1%EF%B9%A5%2Cmargin%2C%3C++%3E%2C{+}%2C%EF%B9%A4p%EF%B9%A5%2C%EF%B9%A4!DOCTYPE+html%EF%B9%A5%2C%EF%B9%A4head%EF%B9%A5%2Ccolon%2C%EF%B9%A4style%EF%B9%A5%2C.html%2CHTML%2CCSS%2CJavaScript%2Cborder&freespace=true&freespaceValue=Web+Design+Master&freespaceRandom=false&width=5&height=5&number=35#results
         var data = [
-                    {"label":"Michael", "value":1, "question":"<span>Today's daily Hero is<br/><br/>Michael!!!</span>"},
-                    {"label":"Felicia", "value":2, "question":"<span>Today's daily Hero is<br/><br/>Felicia!!!</span>"},
-                    {"label":"Sandra", "value":3, "question":"<span>Today's daily Hero is<br/><br/>Sandra!!!</span>"},
-                    {"label":"Franziska", "value":4, "question":"<span>Today's daily Hero is<br/><br/>Franziska!!!</span>"},
-                    {"label":"Kazi",  "value":5, "question":"<span>Today's daily Hero is<br/><br/>Kazi!!!</span>"},
-                    {"label":"Nils",  "value":6, "question":"<span>Today's daily Hero is<br/><br/>Nils!!!</span>"},
-                    {"label":"Thorlef",  "value":7, "question":"<span>Today's daily Hero is<br/> Thorlef!!!</span>"},
-                    {"label":"Lukas",  "value":8, "question":"<span>Today's daily Hero is<br/> Lukas!!!</span>"},
-                    //{"label":"Alex", "value":9, "question":"<span>Today's daily Hero is<br/> Alex!!!</span>"},
+                    {"label":"Michael", "value":1, "question":"<span>Today's daily Hero is<br/><br/>Michael!</span>"},
+                    {"label":"Felicia", "value":2, "question":"<span>Today's daily Hero is<br/><br/>Felicia!</span>"},
+                    {"label":"Sandra", "value":3, "question":"<span>Today's daily Hero is<br/><br/>Sandra!</span>"},
+                    {"label":"Franziska", "value":4, "question":"<span>Today's daily Hero is<br/><br/>Franziska!</span>"},
+                    {"label":"Kazi",  "value":5, "question":"<span>Today's daily Hero is<br/><br/>Kazi!</span>"},
+                    {"label":"Nils",  "value":6, "question":"<span>Today's daily Hero is<br/><br/>Nils!</span>"},
+                    {"label":"Thorlef",  "value":7, "question":"<span>Today's daily Hero is<br/> Thorlef!</span>"},
+                    {"label":"Lukas",  "value":8, "question":"<span>Today's daily Hero is<br/> Lukas!</span>"},
+                    //{"label":"Alex", "value":9, "question":"<span>Today's daily Hero is<br/> Alex!</span>"},
         ];
         var svg = d3.select('#chart')
             .append("svg")
@@ -409,6 +428,78 @@ var padding = {top:20, right:40, bottom:0, left:0},
             }
             return array;
         }
+
+
+        function letItSnow() {
+	//create canvas
+	var canvas = document.getElementById('snow-canvas');
+	var context = canvas.getContext('2d');
+	
+	// The initial angle 
+	var angle = 0;
+	
+	//Get canvas width and height
+	var width = window.innerWidth;
+	var height = window.innerHeight;
+	
+	//Set canvas width and height
+	canvas.width = width;
+	canvas.height = height;
+	
+	//Create the snow particles
+	var snowParticles = 250;
+	var flakes = [];
+	
+	for (var i = 0; i < snowParticles; i++){
+		flakes.push({
+			x: Math.random()*width,
+			y: Math.random()*height,
+			radius: Math.random()*4+1,
+			density: Math.random()*snowParticles
+		});
+	}
+	//console.log('The snow flakes array ', flakes);
+	
+	function drawFlakes() {
+		context.clearRect(0, 0, width, height);
+		context.fillStyle = 'rgba(255, 255, 255, 0.8)';
+		context.beginPath();
+		
+		for (var i = 0; i < snowParticles; i++) {
+			var f = flakes[i];
+			context.moveTo(f.x, f.y);
+			context.arc(f.x, f.y, f.radius, 0, Math.PI * 2, true);
+		}
+		context.fill()
+		updateCanvas();
+	}
+	
+	function updateCanvas() {
+		angle += 0.01
+		for (var i = 0; i < snowParticles; i++) {
+			var f = flakes[i];
+			
+			//update the snowflakes coordinates
+			f.y += Math.cos(angle + f.density) + 1 + f.radius / 2;
+			f.x += Math.sin(angle) * 2;
+			
+			if(f.x > width + 5 || f.x < -5 || f.y > height) {
+				if(i % 3 > 0) {
+					flakes[i] = {x: Math.random()* width, y: -10, radius: f.radius, density: f.density};
+				} else {
+					if(Math.sin(angle) > 0) {
+						flakes[i] = {x: - 5, y: Math.random()*height, radius: f.radius, density: f.density};
+					} else {
+						flakes[i] = {x: width + 5, y: Math.random()*height, radius: f.radius, density: f.density};
+					}
+				}
+			}
+		}
+	}
+	setInterval(drawFlakes, 33);
+}
+
+window.onload = letItSnow();
     </script>
 </body>
 </html>
