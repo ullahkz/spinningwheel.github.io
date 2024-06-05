@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
             "#708090",  // Slate Gray
             "#B0C4DE",  // Light Steel Blue
             "#6495ED"   // Cornflower Blue
-          ]
+          ];
         //randomNumbers = getRandomNumbers();
     var data = [
         {"label":"Michael", "value":1, "question":"<span>Today's Daily-Hero is<br/>Michael!</span>"},

@@ -222,5 +222,5 @@ text{
     /*text-shadow: 3px 2px 1px #570936;*/
 }
 g.slice {
-  opacity: 0.75;
+  opacity: 0.75 !important;
 }
