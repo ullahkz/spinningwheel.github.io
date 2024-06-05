@@ -9,16 +9,28 @@ document.addEventListener('DOMContentLoaded', function() {
         picked = 100000,
         oldpick = [],
         //color = d3.scale.category20c();//category20c()
-        color = [
-            "#B7E4C7",
-            "#F6CED8",
-            "#FFDAB9",
-            "#87CEEB",
-            "#E6E6FA",
-            "#FFFACD",
-            "#FF6F61",
-            "#C8A2C8"
-          ];
+        // color = [
+        //     "#B7E4C7",
+        //     "#F6CED8",
+        //     "#FFDAB9",
+        //     "#87CEEB",
+        //     "#E6E6FA",
+        //     "#FFFACD",
+        //     "#FF6F61",
+        //     "#C8A2C8",
+        //     "#8FBC8F"
+        //   ];
+          color = [
+            "#FFD700",  // Gold
+            "#FFA07A",  // Light Salmon
+            "#FF7F50",  // Coral
+            "#00FA9A",  // Medium Spring Green
+            "#87CEFA",  // Light Sky Blue
+            "#4682B4",  // Steel Blue
+            "#708090",  // Slate Gray
+            "#B0C4DE",  // Light Steel Blue
+            "#6495ED"   // Cornflower Blue
+          ]
         //randomNumbers = getRandomNumbers();
     var data = [
         {"label":"Michael", "value":1, "question":"<span>Today's Daily-Hero is<br/>Michael!</span>"},
@@ -29,6 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
         {"label":"Nils",  "value":6, "question":"<span>Today's Daily-Hero is<br/>Nils!</span>"},
         {"label":"Thorlef",  "value":7, "question":"<span>Today's Daily-Hero is<br/>Thorlef!</span>"},
         {"label":"Lukas",  "value":8, "question":"<span>Today's Daily-Hero is<br/>Lukas!</span>"},
+        {"label":"Joachim",  "value":8, "question":"<span>Today's Daily-Hero is<br/>Joachim!</span>"},
+
     ];
     var svg = d3.select('#chart')
         .append("svg")

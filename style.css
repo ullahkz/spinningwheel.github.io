@@ -207,7 +207,8 @@ text{
     justify-content: center;
     align-items: center;
     background-clip: text;
-    background-image: linear-gradient(90deg, #e66465, #9198e5);
+    /*background-image: linear-gradient(90deg, #e66465, #9198e5);*/
+    background-image: linear-gradient(90deg, #000000, #9198e5);
 }
 #question h1{
     font-size: 70px;
@@ -218,5 +219,8 @@ text{
     margin: 0;
     text-align: center;
     color: transparent;
-    text-shadow: 3px 2px 1px #570936;
+    /*text-shadow: 3px 2px 1px #570936;*/
+}
+g.slice {
+  opacity: 0.75;
 }
