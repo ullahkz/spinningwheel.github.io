@@ -155,7 +155,8 @@ document.addEventListener("DOMContentLoaded", function () {
     .attr("text-anchor", "end")
     .text(function (d, i) {
       return data[i].label;
-    });
+    })
+    .classed("animate__animated animate__zoomInDown", true);
   container.on("click", spin);
 
   function spin(d) {
@@ -201,13 +202,22 @@ document.addEventListener("DOMContentLoaded", function () {
           .style("fill", "rgb(0,0,0)");
 
         //populate question
-        d3.select("#question h1").html(data[picked].question);
         oldrotation = rotation;
         const content = document.getElementById("question-container");
         if (content) {
           content.style.visibility = "visible";
+          if (content.classList.contains("animate__animated")) {
+            content.className = "";
+            setTimeout(() => {
+              content.classList.add("animate__animated", "animate__flipInX");
+            }, 25);
+          } else {
+            content.classList.add("animate__animated", "animate__zoomInDown");
+          }
         }
-        console.log("here");
+        setTimeout(() => {
+          d3.select("#question h1").html(data[picked].question);
+        }, 50);
         /* Get the result value from object "data" */
         console.log(data[picked].value);
 
